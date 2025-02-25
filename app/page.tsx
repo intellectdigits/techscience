@@ -1,29 +1,18 @@
 
 "use client";
 
-import { useRouter } from "next/navigation";
-import {
-  doc,
-  deleteDoc,
-  query,
-  where,
-  orderBy,
-  collection,
-  updateDoc,
-  getDocs,
-} from "firebase/firestore";
-import { addDoc } from "firebase/firestore";
+
+
 
 
 import { useState,useEffect } from "react";
-import { db } from "../lib/firebase";
-import Link from "next/link";
+
 import { useSearchParams } from 'next/navigation'
 
 
 
 const admin = () => {
-  const router = useRouter();
+
 
   
 const[category,setCategory]=useState<String>("Computer")
