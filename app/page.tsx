@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 function Search() {
   const searchParams = useSearchParams()
   const search = searchParams.get('search')
-  return <>{}search</>
+  return <>{search}</>
 }
 
 const Admin = () => {
