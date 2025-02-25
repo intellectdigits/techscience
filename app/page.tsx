@@ -2,38 +2,12 @@
 "use client";
 
 
-
-
-
-import { useState,useEffect } from "react";
-
 import { useSearchParams } from 'next/navigation'
 
 
 
 const admin = () => {
 
-
-  
-const[category,setCategory]=useState<String>("Computer")
-const[level,setLevel]=useState<String>("Level 100")
- 
-  const [loading, setLoading] = useState(true);
-  const [topicloading, setTopicLoading] = useState(true);
-  const [assignments, setAssignments] = useState<any>();
-  const [topics, setTopics] = useState<any>();
-  const[editOpen,setEditOpen]=useState(false)
-  const[video,setVideo]=useState("")
-  const[title,setTitle]=useState("")
-  const[docid,setDocid]=useState("")
-  const[inputs,setInputs]=useState({course:"",description:"",image:"",type:"",subject:"",resource:""})
- 
-  useEffect(() => {
-   
-  }, [category,level]);
-  const startRoom = async () => {
-   
-  };
 
 
 const searchParams = useSearchParams()
