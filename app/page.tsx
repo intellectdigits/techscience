@@ -5,19 +5,22 @@
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react';
 
-
+function Search() {
+  const searchParams = useSearchParams()
+  const search = searchParams.get('search')
+  return <>{}search</>
+}
 
 const Admin = () => {
 
-
-
-const searchParams = useSearchParams()
  
-const search = searchParams.get('search')
+
   return (
     <section className="flex size-full flex-col gap-3 ">
  
- <Suspense>Search: {search}</Suspense>
+ <Suspense>
+      <Search />
+    </Suspense>
   
 		<div className="form-group">
 			<label >Name:</label>
