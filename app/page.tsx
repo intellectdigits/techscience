@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 
 
 
-const admin = () => {
+const Admin = () => {
 
 
 
@@ -50,4 +50,4 @@ const search = searchParams.get('search')
   );
 };
 
-export default admin;
+export default Admin;
