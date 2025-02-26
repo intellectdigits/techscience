@@ -4,24 +4,50 @@
 
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react';
-
-function Search() {
-  const searchParams = useSearchParams()
-  const search = searchParams.get('search')
-  return <>{search}</>
-}
+import { addDoc } from "firebase/firestore";
+import { useState,useEffect } from "react";
+import { db } from "../lib/firebase";
+import {
+	
+	collection,
+	
+  } from "firebase/firestore";
+ 
+ 
 
 const Admin = () => {
-
- 
+	const searchParams = useSearchParams()
+	const name = searchParams.get('name');
+	const  english= searchParams.get('english')
+	const  englishscore= searchParams.get('englishscore')
+	const  sub1= searchParams.get('sub1')
+	const  sub1score= searchParams.get('sub1score')
+	const  sub2score= searchParams.get('sub2score')
+	const  sub3score= searchParams.get('sub3score')
+	const  sub2= searchParams.get('sub2')
+	const  sub3= searchParams.get('sub3')
+	const [loading, setLoading] = useState(true);
+	const handlesubmit=async () => {
+		setLoading(true);
+		try {
+		  
+		  const docRef = await addDoc(collection(db, "cbtexams"), {
+		   name:name,english:english,sub1:sub1,sub2:sub2,sub3:sub3,sub1score,sub2score,sub3score
+		  });
+			} catch (e) {
+		  console.error("Error adding document: ", e);
+		 alert("something went  wrong")
+		}
+	  };
+	  useEffect(() => {
+		handlesubmit()
+		
+	  }, []);
 
   return (
     <section className="flex size-full flex-col gap-3 ">
  
- <Suspense>
-      <Search />
-    </Suspense>
-  
+ 
 		<div className="form-group">
 			<label >Name:</label>
 			<input type="text" className="form-control" id="name" placeholder="Name" name="name"/>
